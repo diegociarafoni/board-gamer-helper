@@ -1,0 +1,7 @@
+{
+  "name": "board-turn-helper",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
