@@ -3,9 +3,12 @@ import 'zone.js';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideRouter } from '@angular/router';
 import { provideIonicAngular } from '@ionic/angular/standalone';
+import { defineCustomElements } from '@ionic/core/loader';
 
 import { AppComponent } from './app/app.component';
 import { routes } from './app/app.routes';
+
+defineCustomElements(window);
 
 bootstrapApplication(AppComponent, {
   providers: [
