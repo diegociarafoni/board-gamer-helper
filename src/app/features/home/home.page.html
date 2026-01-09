@@ -11,7 +11,9 @@
   <div class="modes-container">
     <ion-button
       class="mode-square"
-      (click)="go('first')"
+      routerLink="/mode/first"
+      routerDirection="forward"
+      href="mode/first"
       aria-label="First player"
       title="First player"
     >
@@ -41,7 +43,9 @@
 
     <ion-button
       class="mode-square"
-      (click)="go('order')"
+      routerLink="/mode/order"
+      routerDirection="forward"
+      href="mode/order"
       aria-label="Turn order"
       title="Turn order"
     >
@@ -63,7 +67,9 @@
 
     <ion-button
       class="mode-square"
-      (click)="go('teams')"
+      routerLink="/mode/teams"
+      routerDirection="forward"
+      href="mode/teams"
       aria-label="Teams"
       title="Teams"
     >

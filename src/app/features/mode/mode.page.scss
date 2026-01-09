@@ -20,21 +20,38 @@
   pointer-events: none;
 }
 
-ion-toolbar {
-  position: relative;
-}
-
 .mode-title {
-  position: absolute;
-  inset: 0;
-  margin: 0;
-  padding: 0;
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  pointer-events: none;
+  padding-inline: 56px;
+}
+
+ion-header {
+  background: var(--ion-background-color, #fff);
+}
+
+ion-toolbar {
+  --background: var(--ion-background-color, #fff);
+  --padding-start: 12px;
+  --padding-end: 12px;
+  --min-height: 56px;
+}
+
+ion-buttons[slot="start"],
+ion-buttons[slot="end"] {
+  z-index: 2;
+}
+
+ion-content::part(scroll) {
+  display: flex;
+  flex-direction: column;
+}
+
+app-touch-surface {
+  flex: 1;
+  min-height: 0;
 }
 
 /* Countdown overlay centered and large */
@@ -67,7 +84,7 @@ ion-toolbar {
   gap: 8px;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: auto;
 }
 
 .mode-icons svg {
