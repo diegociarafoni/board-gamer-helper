@@ -37,6 +37,16 @@ ion-toolbar {
   pointer-events: none;
 }
 
+ion-content::part(scroll) {
+  display: flex;
+  flex-direction: column;
+}
+
+app-touch-surface {
+  flex: 1;
+  min-height: 0;
+}
+
 /* Countdown overlay centered and large */
 .overlay.countdown {
   position: absolute;
