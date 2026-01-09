@@ -1,7 +1,7 @@
 {
   "name": "board-turn-helper",
   "version": "0.0.1",
-  "author": "Ionic Framework",
+  "author": "Diego Ciarafoni",
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
@@ -21,6 +21,7 @@
     "@angular/platform-browser": "^20.0.0",
     "@angular/platform-browser-dynamic": "^20.0.0",
     "@angular/router": "^20.0.0",
+    "@capacitor/android": "8.0.0",
     "@capacitor/app": "8.0.0",
     "@capacitor/core": "8.0.0",
     "@capacitor/haptics": "8.0.0",

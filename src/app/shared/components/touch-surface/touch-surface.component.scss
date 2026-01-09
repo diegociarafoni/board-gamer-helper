@@ -1,0 +1,21 @@
+:host {
+	display: block;
+	height: 100%;
+}
+
+.surface {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	touch-action: none;
+	user-select: none;
+	box-sizing: border-box;
+}
+
+.surface svg.hud {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+}
+
+
