@@ -20,21 +20,11 @@
   pointer-events: none;
 }
 
-ion-toolbar {
-  position: relative;
-}
-
 .mode-title {
-  position: absolute;
-  inset: 0;
-  margin: 0;
-  padding: 0;
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  pointer-events: none;
 }
 
 ion-content::part(scroll) {
