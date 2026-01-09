@@ -19,47 +19,19 @@ export class TouchSurfaceComponent {
 
   onPointerDown(ev: PointerEvent) {
     const el = this.surface.nativeElement;
-    const svg = el.querySelector('svg') as SVGSVGElement;
-    
-    if (!svg) {
-      console.warn('SVG not found in touch surface');
+    const rect = el.getBoundingClientRect();
+
+    if (rect.width === 0 || rect.height === 0) {
+      console.warn('Touch surface has no size');
       return;
     }
 
-    // Get client coordinates
-    const clientX = ev.clientX;
-    const clientY = ev.clientY;
-    
-    // Get SVG position on screen
-    const svgRect = svg.getBoundingClientRect();
-    
-    // Convert client coordinates to SVG coordinate system
-    const pt = svg.createSVGPoint();
-    pt.x = clientX - svgRect.left;
-    pt.y = clientY - svgRect.top;
-    
-    // Apply inverse transformation to convert to viewBox coordinates
-    const screenCTM = svg.getScreenCTM();
-    if (!screenCTM) {
-      console.warn('Could not get screen CTM');
-      return;
-    }
-    
-    const svgPt = pt.matrixTransform(screenCTM.inverse());
-    
-    // Get viewBox dimensions
-    const viewBox = svg.viewBox.baseVal;
-    const viewBoxWidth = viewBox.width;
-    const viewBoxHeight = viewBox.height;
-    
-    // Normalize to [0, 1]
-    // Note: The viewBox might have an offset, so we subtract the viewBox origin
-    const nx = (svgPt.x - viewBox.x) / viewBoxWidth;
-    let ny = (svgPt.y - viewBox.y) / viewBoxHeight;
-    
-    // Compensate for circle radius (6 pixels in 100-unit viewBox = 0.06)
-    // The touch point is at the bottom edge of the circle, add radius to get center
-    const circleRadiusNormalized = 6 / viewBoxHeight;
+    const nx = (ev.clientX - rect.left) / rect.width;
+    let ny = (ev.clientY - rect.top) / rect.height;
+
+    // Compensate for circle radius (6px in 100-unit viewBox = 0.06)
+    // The touch point is at the bottom edge of the circle, add radius to get center.
+    const circleRadiusNormalized = 6 / 100;
     ny = ny + circleRadiusNormalized;
     
     // Clamp to [0, 1]
